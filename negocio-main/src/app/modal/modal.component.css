@@ -12,11 +12,13 @@
     font-size: 22px;
     
 }
-.btn-circles:hover{
+.btn-circles:hover,
+.btn-circles.clicked {
     background-color: #4c5562;
     color:#fff;
 }
-.btn-circle:hover{
+.btn-circle:hover,
+.btn-circle.clicked {
     background-image: url(../../assets/img/borde-blanco.png);
     background-repeat: no-repeat;
     background-position: center;

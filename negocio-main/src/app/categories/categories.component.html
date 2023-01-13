@@ -14,12 +14,9 @@
                     <div class="titulo-card">{{card.name}}</div>
                     <div class="monto-card">$ 100</div>
                 </div>
-
             </li>
-            
-
         </ul>
-      <app-modal></app-modal>
+      <app-modal (newCategory)="addNewCategory($event)"></app-modal>
     </div>
 
 </div>
