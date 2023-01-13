@@ -7,7 +7,6 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ModalComponent } from './modal/modal.component';
 import { TransactionsModule } from './transactions/transactions.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
