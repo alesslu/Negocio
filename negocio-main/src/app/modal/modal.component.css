@@ -69,3 +69,27 @@
 
   }
 
+c div #labelName{
+    margin-left: -215px;
+    font-weight: bold;
+}
+div #labelType{
+    margin-left: -221px;
+    font-weight: bold;
+
+}
+div #labelExpense{
+    margin-left: -180px;
+}
+div #labelIncome{
+    margin-left: -190px;
+}
+div #labelColor{
+    margin-left: -228px;
+    font-weight: bold;
+}
+div #labelIcon{
+    margin-left: -240px;
+    font-weight: bold;
+}
+
