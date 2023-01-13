@@ -73,7 +73,7 @@ export class TransactionsService {
             resumen.transactions = resumen.transactions!.filter((x: TransactionModel) => x.date!.getTime() >= new Date(filterModel.from! + 'T00:00:00').getTime());
           }
           if (filterModel.to) {
-            resumen.transactions = resumen.transactions!.filter((x: TransactionModel) => x.date!.getTime() <= new Date(filterModel.to! + 'T00:00:00').getTime());
+            resumen.transactions = resumen.transactions!.filter((x: TransactionModel) => x.date!.getTime() <= new Date(filterModel.to! + 'T24:00:00').getTime());
           }
         }
       })
