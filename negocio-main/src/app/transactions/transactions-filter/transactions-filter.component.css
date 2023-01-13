@@ -1,0 +1,23 @@
+.transactions-filter{
+    margin-top: 5px;
+}
+
+.title-category,
+.title-amount,
+.title-date{
+    font-size: 18px;
+}
+
+.category{
+    margin-top: 5px;
+}
+
+.category,
+.amount,
+.date{
+    margin-bottom: 10px;
+}
+
+.form-label{
+    font-size: 14px;
+}

@@ -1,0 +1,35 @@
+<div class="transactions-filter">
+    <span class="title-category">Category</span>
+    <div class="category">
+        <div class="form-check form-check-inline" *ngFor="let category of categories">
+            <input class="form-check-input" [(ngModel)]="category.isChecked" type="checkbox" [name]="'category' + category.id" [value]="category.id" [id]="'category' + category.id" (change)="changeCategorySelection()">
+            <label class="form-check-label" [for]="'category' + category.id">{{ category.name }}</label>
+        </div>
+    </div>
+    <span class="title-amount">Amount</span>
+    <div class="amount">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <label for="min" class="form-label">MIN</label>
+                <input type="number" class="form-control" id="min" [(ngModel)]="filterModel.min" (input)="onFilter()">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="min" class="form-label">MAX</label>
+                <input type="number" class="form-control" id="max" [(ngModel)]="filterModel.max" (input)="onFilter()">
+            </div>
+        </div>
+    </div>
+    <span class="title-date">Date</span>
+    <div class="date">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <label for="from" class="form-label">FROM</label>
+                <input type="date" class="form-control" id="from" [(ngModel)]="filterModel.from" (change)="onFilter()">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="to" class="form-label">TO</label>
+                <input type="date" class="form-control" id="to" [(ngModel)]="filterModel.to" (change)="onFilter()">
+            </div>
+        </div>
+    </div>
+</div>

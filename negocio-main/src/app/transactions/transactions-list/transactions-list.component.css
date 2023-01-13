@@ -1,0 +1,28 @@
+.title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.title {
+    font-size: 2.3rem;
+}
+
+.filter-icon {
+    cursor: pointer;
+    background-color: #EDEDED;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.transaction-wrapper {
+    border-bottom: solid 2px #ddd;
+    border-left: 0;
+    border-right: 0;
+    padding: 0.5rem 0.25rem;
+}
+
+.transaction-wrapper:first-child {
+    border-top: solid 2px #ddd;
+}

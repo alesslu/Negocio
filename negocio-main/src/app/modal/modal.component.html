@@ -1,0 +1,63 @@
+
+        <button type="button" (click)="openFormModal()" class="boton-ad btn-dark">
+          <i class="fa-duotone fa-plus"></i>
+        </button>
+  
+  <!--form modal-->
+  <div class="modal fade myCustomModalClass" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">New category</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div> <label style="text-align: left;" for="name"> NAME</label> </div>
+            <div> <input class="caja-texto" type="text" name="name" id="name" [(ngModel)] = "categories.name"> </div>
+            <div> <label for="name"> TYPE</label></div>
+            <div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="exampleRadios1" value="expense"
+                  checked [(ngModel)] = "categories.type">
+                <label class="form-check-label" for="exampleRadios1">
+                  Expense
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="income">
+                <label class="form-check-label" for="exampleRadios2" checked [(ngModel)] = "categories.type">
+                  Income
+                </label>
+              </div>
+            </div>
+             <ul class="bloque-ul">
+              <div><label for="color"> COLOR</label></div>
+              <li> <button type="button" class="btn btn-1 btn-circle" (click)="agregarColor('rojo')"></button> </li>
+              <li> <button type="button" class="btn btn-2 btn-circle" (click)="agregarColor('naranja')"></button> </li>
+              <li> <button type="button" class="btn btn-3 btn-circle" (click)="agregarColor('amarillo')"></button> </li>
+              <li> <button type="button" class="btn btn-4 btn-circle" (click)="agregarColor('verde')"></button> </li>
+              <li> <button type="button" class="btn btn-5 btn-circle" (click)="agregarColor('verde-1')"></button> </li>
+              <li> <button type="button" class="btn btn-6 btn-circle" (click)="agregarColor('celeste')"></button> </li>
+              <li> <button type="button" class="btn btn-7 btn-circle" (click)="agregarColor('turqueza')"></button> </li>
+              <li> <button type="button" class="btn btn-8 btn-circle" (click)="agregarColor('azul')"></button> </li>
+            </ul>
+            <ul class="bloque-ul">
+              <div><label for="icon"> ICON</label></div>
+              <li><button type="button" class="btn btn-gris btn-circles " (click)="agregarIcono('rent')"><i class="fa fa-university"></i></button></li>
+              <li><button type="button" class="btn btn-gris btn-circles " (click)="agregarIcono('groceries')"><i class="fas fa-shopping-cart"></i> </button> </li>
+              <li><button type="button" class="btn btn-gris btn-circles " (click)="agregarIcono('health')"><i class="fas fa-medkit"></i></button></li>
+              <li><button type="button" class="btn btn-gris btn-circles " (click)="agregarIcono('entertainment')"><i class="fas fa-gamepad"></i></button></li>
+              <li><button type="button" class="btn btn-gris btn-circles " (click)="agregarIcono('Education')"><i class="fas fa-graduation-cap"></i></button> </li>
+              <li><button type="button" class="btn btn-gris btn-circles " (click)="agregarIcono('gift')"><i class="fas fa-gift"></i></button></li>
+              <li><button type="button" class="btn btn-gris btn-circles " (click)="agregarIcono('transport')"><i class="fas fa-car"></i></button></li>
+              <li><button type="button" class="btn btn-gris btn-circles " (click)="agregarIcono('hobby')"><i class="fa-solid fa-book"></i></button></li>
+            </ul>
+            <div><button type="button" class="btn btn-create col-md-12"
+                (click)="saveSomeThing()">Create</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

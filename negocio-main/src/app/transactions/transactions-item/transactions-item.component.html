@@ -1,0 +1,25 @@
+<div class="transactions-item" [class]="model?.type == 'RESUMEN' ? 'resumen-item' : ''">
+    <div class="left-side">
+        <div class="me-2">
+            <span class="day" *ngIf="model?.type == 'RESUMEN'; else icon">{{ model?.date | date: 'dd' }}</span>
+            <ng-template #icon>
+                <i class="icon" [class]="model?.category!.icon" [style.background]="model?.category!.color"></i>
+            </ng-template>
+        </div>
+        <div class="description-wrapper">
+            <ng-container *ngIf="model?.type == 'RESUMEN'; else category">
+                <h2 class="category" style="color: #7a7a76;">{{ model?.date | date: 'EEEE' }}</h2>
+                <p class="description" style="color: black; font-weight: 600;">{{ model?.date | date: 'MMMM, yyyy' }}
+                </p>
+            </ng-container>
+            <ng-template #category>
+                <h2 class="category">{{ model?.category!.name }}</h2>
+                <p class="description">{{ model?.description }}</p>
+            </ng-template>
+        </div>
+    </div>
+    <div class="amount" [class]="model?.amount! >= 0 ? 'text-success' : 'text-danger'">
+        <span class="sign" *ngIf="model?.amount! >= 0">+</span>
+        <span>{{ model?.amount | currency }}</span>
+    </div>
+</div>

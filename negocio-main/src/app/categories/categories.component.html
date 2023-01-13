@@ -1,0 +1,24 @@
+<div class="head-category">
+    <div class="fecha">
+        <h5>March 2022</h5>
+    </div>
+    <h2 class="monto">$1,250</h2>
+    <p>Total Expenses</p>
+    <div>
+        <ul *ngFor="let card of cards" class="cajitas col-md-12">
+            <li class="{{card.color}} col-md-4" style="background-color:white !important">
+                <button class="btn-circles {{card.color}}">
+                    <i class="icono {{card.icon}}"></i>
+                </button>
+                <div class="texto-card">
+                    <div class="titulo-card">{{card.name}}</div>
+                    <div class="monto-card">$ 100</div>
+                </div>
+
+            </li>
+
+        </ul>
+      <app-modal></app-modal>
+    </div>
+
+</div>

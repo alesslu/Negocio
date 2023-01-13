@@ -1,0 +1,18 @@
+<div class="title-wrapper">
+    <h1 class="title">Transactions</h1>
+    <span>
+    <i class="filter-icon rounded-circle fa-solid fa-filter" title="Filtrar" (click)="toggleShowFilter()"></i>
+</span>
+</div>
+
+<div class="my-2">
+    <app-transactions-filter *ngIf="showFilter" (filter)="listar($event)"></app-transactions-filter>
+</div>
+<div class="transactions-list" *ngFor="let resumen of transactions">
+    <ng-container *ngIf="resumen.transactions!.length">
+        <app-transactions-item [model]="resumen"></app-transactions-item>
+        <div class="transaction-wrapper" *ngFor="let item of resumen.transactions">
+            <app-transactions-item [model]="item"></app-transactions-item>
+        </div>
+    </ng-container>
+</div>

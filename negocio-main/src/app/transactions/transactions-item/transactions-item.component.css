@@ -1,0 +1,57 @@
+.transactions-item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.day {
+    font-size: 2rem;
+    font-weight: 600;
+    width: 2.8rem;
+    height: 2.8rem;
+    display: block;
+    text-align: center;
+}
+
+.icon {
+    text-align: center;
+    font-size: 1.60rem;
+    line-height: 1.60rem;
+    padding: 0.5rem;
+    color: #fff;
+    border-radius: 50%;
+    width: 2.70rem;
+    height: 2.70rem;
+}
+
+.category {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.description {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    color: #7a7a76;
+}
+
+.amount {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.left-side {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.resumen-item {
+    background: #ededed;
+    padding: 0.75rem 0.25rem;
+}
