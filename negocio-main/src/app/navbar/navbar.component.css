@@ -1,0 +1,143 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+h4{
+    font-weight: 800;
+    font-size: 17px;
+    color: #515967;
+    margin-bottom: 35px;
+    padding-left: 0.5em;
+}
+
+h3{
+    font-weight: 800;
+    font-size: 18px;
+    color: #515967;
+    margin-bottom: 20px;
+    padding-left: 1.5em;
+
+}
+
+h6{
+    font-weight: 700;
+    font-size: 15px;
+    color: #515967;
+}
+
+.barra_navegación{
+    display: grid;
+    margin-bottom: 17em;
+}
+
+.primera_col{
+    background-color: #f3f4f6;
+    padding: 2em;
+    height: 690px;
+}
+
+.usuario{
+    padding-top: 20px;
+    border-top: 0.2px solid #51596736;
+}
+
+.mail{
+    font-weight: 500;
+    font-size: 13px;
+    color: #515967;
+}
+
+.out{
+    font-weight: 600;
+    font-size: 15px;
+    color: #515967;
+}
+
+
+
+.segunda_col{
+    padding: 2em;
+    border-right: 0.2px solid #51596736;
+}
+
+.tercera_col{
+    padding: 2em;
+}
+
+a:link { text-decoration:none; } 
+a:visited { text-decoration:none; }
+
+
+.w3-button{
+    margin-bottom: 15px;
+    height: 40px;
+    border: none;
+    border-style: none;
+
+    color: #515967;
+    font-size: 14px;
+    font-weight: 600;
+
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 1em;
+    height: 50px;
+
+}
+
+.w3-button:hover{
+    border: none;
+    color: white;
+    background-color: #f472b6;
+    border-radius: 5px;
+    border-style: hidden;
+    height: 50px;
+    
+}
+
+.icono{
+    margin-right: 1em;
+    width: 24px;
+    height: 24px;
+}
+
+.icono:hover{
+    filter: brightness(0) saturate(100%)  invert(100%) sepia(0%) saturate(7500%) hue-rotate(311deg) brightness(100%) contrast(113%);
+
+}
+
+/* Mini-barra */
+
+.mini_barra{
+    border-bottom: 2px solid rgba(132, 132, 133, 0.329);
+}
+
+.subtitulo{
+    color: #515967;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.subtitulo:hover{
+    color: #f472b6;
+}
+
+.nav-item{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.nav-item:hover{
+    filter: brightness(0) saturate(100%) invert(65%) sepia(19%) saturate(2691%) hue-rotate(292deg) brightness(100%) contrast(92%);
+    cursor: pointer;
+}
+
+.icono2{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
