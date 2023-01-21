@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -8,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   contactForm!: FormGroup;
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(private readonly fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.contactForm = this.initForm();
@@ -28,4 +30,21 @@ export class RegisterComponent implements OnInit {
   }
 
 
-}
+  // Cambiar esto------------------------------------>
+  
+    changeRouteLoginToHome() {
+      if (this.contactForm.value.email == 'test2@mail.com' && this.contactForm.value.password == '123456') {
+        localStorage.setItem('isLoggedIn', 'true');
+        this.router.navigate(['home']);
+      } else {
+        alert("Error, debes llenar los campos requeridos");
+      }
+    }
+    
+    changeRouteRegisterToHome() {
+      this.router.navigate(['login']);
+    }
+  }
+
+
+

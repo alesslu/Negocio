@@ -1,0 +1,35 @@
+.container{
+    height: 100vh;
+    width: 27em;
+
+}
+
+h1{
+    text-align: center;
+    font-weight: 700;
+    font-size: 2em;
+    margin-top: 2em;
+}
+
+.register{
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+label{
+    letter-spacing: 0.4em;
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.btn{
+    background-color: #f472b6;
+    color: rgb(255, 255, 255);
+    border: none;
+}
+.btn-register{
+    background-color: rgb(255, 255, 255);
+    color: #f472b6;
+    border: none;
+
+}
