@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Register } from '../models/register.interface';
+import { UserService } from '../services/user.service';
+
 
 @Component({
   selector: 'app-register',
@@ -8,22 +11,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   contactForm!: FormGroup;
-  constructor(private readonly fb: FormBuilder) {}
+  registro: Register[] = []
+  
+  constructor(public userService: UserService, private readonly fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.contactForm = this.initForm();
   }
 
-  onSubmit(): void {
+  register(): void {
     console.log('Form ->', this.contactForm.value)
+    this.registro = this.contactForm.value;
+    this.userService.register(this.register).subscribe(data => {
+      console.log(data);
+    });
   }
 
   initForm(): FormGroup{
     return this.fb.group({
-      name:['', [Validators.required, Validators.minLength(5)]],
-      checkAdult:['', [Validators.required]],
-      departament:[''],
-      comment:['', [Validators.required]],
+      email:['', [Validators.required]],
+      password:['',[Validators.required]],
+      last_name:['',[Validators.required],Validators.minLength(5)],
+      first_name:['',[Validators.required],Validators.minLength(5)],
+      phone:['',[Validators.required],Validators.minLength(9)],
     })
   }
 

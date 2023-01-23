@@ -1,3 +1,15 @@
 .container{
     width: 500px;
 }
+
+.btn{
+    background-color: rgb(255, 98, 213);
+    color: rgb(255, 255, 255);
+    border: none;
+}
+.btn-register{
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 98, 213);
+    border: none;
+
+}
