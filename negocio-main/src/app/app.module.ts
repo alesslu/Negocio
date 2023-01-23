@@ -12,6 +12,10 @@ import { BudgetsComponent } from './budgets/budgets.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './interceptors';
+import { TransactionshomeComponent } from './transactionshome/transactionshome.component';
+import { CategorieshomeComponent } from './categorieshome/categorieshome.component';
 
 
 @NgModule({
@@ -23,16 +27,19 @@ import { RegisterComponent } from './register/register.component';
     BudgetsComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TransactionshomeComponent,
+    CategorieshomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     TransactionsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

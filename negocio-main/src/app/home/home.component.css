@@ -33,7 +33,7 @@ h6{
 .primera_col{
     background-color: #f3f4f6;
     padding: 2em;
-    height: 690px;
+    height: 50em;
 }
 
 .usuario{
@@ -51,6 +51,7 @@ h6{
     font-weight: 600;
     font-size: 15px;
     color: #515967;
+    border: none;
 }
 
 

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CategoryModel } from 'src/app/models/CategoryModel';
 import { FilterModel } from 'src/app/models/FilterModel';
 import { TransactionModel } from 'src/app/models/TransactionModel';
+import { CategoriesService } from 'src/app/services/categories.service';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
@@ -10,18 +13,31 @@ import { TransactionsService } from 'src/app/services/transactions.service';
 })
 export class TransactionsListComponent implements OnInit {
 
-  public transactions: TransactionModel[] = [];
+  transactions: TransactionModel[] = [];
+  transactionsCompleto: TransactionModel[] = [];
+  categories: CategoryModel[] = [];
 
   public showFilter: boolean = false;
 
   constructor(
-    private transactionsService: TransactionsService
-  ) {
-
-  }
+    private transactionsService: TransactionsService,
+    private categoriesService: CategoriesService,
+  ) { }
 
   ngOnInit(): void {
-    this.listar();
+    this.categoriesService.getAllCategories().subscribe((res: CategoryModel[]) => {
+      this.categories = res;
+      this.categories.forEach((cat: CategoryModel) => {
+        cat.transactions?.forEach((trns: TransactionModel) => {
+          cat.transactions = [];
+          trns.category = cat;
+          trns.category_id = cat.id;
+          trns.transaction_type = cat.transaction_type;
+          this.transactionsCompleto.push(trns);
+        })
+      })
+      this.listar();
+    });
   }
 
   public toggleShowFilter() {
@@ -33,7 +49,7 @@ export class TransactionsListComponent implements OnInit {
   }
 
   listar(filterModel: FilterModel | null = null) {
-    this.transactions = this.transactionsService.listar(filterModel);
+    this.transactions = this.transactionsService.filtrar(this.transactionsCompleto, filterModel);
   }
 
   onClickLimpiarFiltro() {

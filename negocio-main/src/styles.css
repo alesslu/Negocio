@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+.icono {
+    font-style: normal;
+}
+
+.icono.bank::before {
+    font: var(--fa-font-solid);
+    content: "\f19c";
+}
+
+.icono.bill::before {
+    font: var(--fa-font-solid);
+    content: "\f02d";
+}
+
+.icono.cart::before {
+    font: var(--fa-font-solid);
+    content: "\f07a";
+}
+
+.icono.car::before {
+    font: var(--fa-font-solid);
+    content: "\f1b9";
+}
+
+.icono.education::before {
+    font: var(--fa-font-solid);
+    content: "\f19d";
+}
+
+.icono.game::before {
+    font: var(--fa-font-solid);
+    content: "\f11b";
+}
+
+.icono.health::before {
+    font: var(--fa-font-solid);
+    content: "\2b";
+}
+
+.icono.gift::before {
+    font: var(--fa-font-solid);
+    content: "\f06b";
+}

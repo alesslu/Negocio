@@ -5,6 +5,7 @@ import { TransactionsItemComponent } from './transactions-item/transactions-item
 import { TransactionsListComponent } from './transactions-list/transactions-list.component';
 import { TransactionsMasterComponent } from './transactions-master/transactions-master.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule
   ],
   exports: [
     TransactionsMasterComponent

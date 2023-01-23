@@ -1,25 +1,37 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CategoryModel } from '../models/CategoryModel';
+import { TransactionModel } from '../models/TransactionModel';
+import { CategoriesService } from '../services/categories.service';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponent {
-  cards = [{id:"1", name:"Rent", icon:"fa fa-university", type:"volador", color:"borde-9"},
-  {id:"2", name:"Groceries", icon:"fas fa-shopping-cart", type:"papel", color:"borde-6"},
-  {id:"3", name:"Transport", icon:"fas fa-car", type:"papel", color:"borde-2"},
-  {id:"4", name:"Health", icon:"fas fa-medkit", type:"papel", color:"borde-1"},
-  {id:"5", name:"Gifts", icon:"fas fa-gift", type:"papel", color:"borde-10"},
-  {id:"6", name:"Education", icon:"fa-solid fa-book", type:"papel", color:"borde-7"}]
+export class CategoriesComponent implements OnInit {
 
-  name: string ="Rent"
 
-  addNewCategory(category: any): void {
-    console.log(category);
-    this.cards.push(category);
+  categoryId: number | null = null;
+  categories: CategoryModel[] = [];
+  montoTotalCategorias: number = 0;
+
+  constructor(
+    private categoriesService: CategoriesService,
+  ) { }
+
+  ngOnInit(): void {
+    this.categoriesService.getAllCategories().subscribe((data: CategoryModel[]) => {
+      this.categories = this.categoriesService.sumar(data);
+      this.categories.forEach((item: CategoryModel) => {     
+        this.montoTotalCategorias += item.total!;
+      })
+    })
   }
 
-
+  addNewCategory(category: any): void {
+    this.categories.push(category);
+    // this.categoriesService.createCategories(category)
+  }
 }
+
 

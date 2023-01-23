@@ -31,7 +31,9 @@ export class TransactionsFilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categories = this.categoriesService.listar();
+    this.categoriesService.getAllCategories().subscribe((res: CategoryModel[]) => {
+      this.categories = res;
+    });
     this.filterModel = {
       categories: [],
       min: null,

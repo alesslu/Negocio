@@ -1,4 +1,5 @@
 
+        
         <button type="button" (click)="openFormModal()" class="boton-ad btn-dark">
           <i class="fa-duotone fa-plus"></i>
         </button>
@@ -15,19 +16,20 @@
         <div class="modal-body">
           <div>
             <div> <label style="text-align: left;" id="labelName" for="name"> NAME</label> </div>
-            <div> <input class="caja-texto" type="text" name="name" id="name" [(ngModel)] = "categories!.name"> </div>
+            <div> <input class="caja-texto" type="text" name="name" id="name" [(ngModel)] = "addCategories!.name"> </div>
             <div> <label for="name" id="labelType"> TYPE</label></div>
             <div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="type" id="exampleRadios1" value="expense"
-                  checked [(ngModel)] = "categories!.type">
+                  checked [(ngModel)] = "addCategories!.type_transaction">
                 <label class="form-check-label" id="labelExpense" for="exampleRadios1">
                   Expense
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="income">
-                <label class="form-check-label" id="labelIncome" for="exampleRadios2" checked [(ngModel)] = "categories!.type">
+                <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="income"
+                  checked [(ngModel)] = "addCategories!.type_transaction">
+                <label class="form-check-label" id="labelIncome" for="exampleRadios2">
                   Income
                 </label>
               </div>
@@ -41,16 +43,14 @@
             <ul class="bloque-ul">
               <div><label for="icon" id="labelIcon"> ICON</label></div>
               <li *ngFor="let icono of iconos">
-                <button type="button" class="btn btn-gris btn-circles" [ngClass]="icono.clicked ? 'clicked' : ''" (click)="agregarIcono(icono.icon)"><i [class]="icono.icon"></i></button>
+                <button type="button" class="btn btn-gris btn-circles" [ngClass]="icono.clicked ? 'clicked' : ''" (click)="agregarIcono(icono.icon)"><i class="icono" [class]='icono.icon' ></i></button>
               </li>
             </ul>
-            <div><button type="button" class="btn btn-create col-md-12"
-                (click)="saveSomeThing()">Create</button></div>
+              <div><button type="button" class="btn btn-create col-md-12"
+                (click)="saveSomeThing()">Create</button>
+              </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-<div id="Test">
-
-</div>

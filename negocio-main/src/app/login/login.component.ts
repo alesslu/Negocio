@@ -1,29 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SessionsService } from '../services/sessions.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-  contactForm!: FormGroup;
-  constructor(private readonly fb: FormBuilder) {}
+export class LoginComponent implements OnInit {
+
+  loginForm = new FormGroup({
+    email: new FormControl('test10@mail.com'),
+    password: new FormControl('123456'),
+  });
+
+  constructor(
+    private readonly fb: FormBuilder,
+    private sessionsService: SessionsService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.contactForm = this.initForm();
+    this.loginForm = this.initForm();
   }
 
   onSubmit(): void {
-    console.log('Form ->', this.contactForm.value)
+    const { email, password } = this.loginForm.value;
+    this.sessionsService.login(email!, password!);
   }
 
-  initForm(): FormGroup{
+  initForm(): FormGroup {
     return this.fb.group({
-      email:['', [Validators.required]],
-      password:['',[Validators.required]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
 
     })
   }
-
 }

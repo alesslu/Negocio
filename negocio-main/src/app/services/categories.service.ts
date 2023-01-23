@@ -1,56 +1,50 @@
 import { Injectable } from '@angular/core';
 import { CategoryModel } from '../models/CategoryModel';
+import { HttpClient } from '@angular/common/http';
+import { TransactionModel } from '../models/TransactionModel';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
 
-  constructor() { }
+  apiURI: string = "https://expensable-api.herokuapp.com//categories"
 
-  listar(): CategoryModel[] {
-    return [
-      {
-        id: 1,
-        name: 'Rent',
-        icon: 'fa-solid fa-building-columns',
-        color: '#EF4444',
-      },
-      {
-        id: 2,
-        name: 'Groceries',
-        icon: 'fa-solid fa-shopping-cart',
-        color: '#06B6D4',
-      },
-      {
-        id: 3,
-        name: 'Transport',
-        icon: 'fa-solid fa-car',
-        color: '#F97316',
-      },
-      {
-        id: 4,
-        name: 'Health',
-        icon: 'fa-solid fa-plus',
-        color: '#F43F5E',
-      },
-      {
-        id: 5,
-        name: 'Gifts',
-        icon: 'fa-solid fa-gift',
-        color: '#8B5CF6',
-      },
-      {
-        id: 6,
-        name: 'Education',
-        icon: 'fa-solid fa-book',
-        color: '#0EA5E9',
-      },
-    ];
+  addCategories: { name: string, icon: string, type_transaction: string, color: string, transactions: [] } = { name: "", icon: "", type_transaction: "", color: "", transactions: [] }
+
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  categories: CategoryModel[] = []
+  montoTotalCategorias: number = 0;
+
+  getAllCategories() {
+    return this.http.get<CategoryModel[]>(this.apiURI)
   }
 
-  obtener(id?: number): CategoryModel {
-    let categories = this.listar();
-    return categories.filter((x: CategoryModel) => x.id == id)[0];
+  getCategoriesById(id: string) {
+    return this.http.get<CategoryModel>(`${this.apiURI}/${id}`)
   }
+
+  createCategories(categories: any = [] ){
+    this.http.post(this.apiURI, categories)
+    .subscribe((res)=>{
+      console.log(res);
+    })
+  }
+
+  sumar(categories: CategoryModel[]): CategoryModel[] {
+    categories.forEach((cat: CategoryModel) => {
+      let total = 0;
+      cat.transactions!.forEach((tr: TransactionModel) => {
+        total += tr.amount!;
+      });
+      cat.total = total;
+    })
+    return categories;
+  }
+
 }

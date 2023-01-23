@@ -94,4 +94,49 @@ div #labelIcon{
     margin-left: -240px;
     font-weight: bold;
 }
+.icono {
+    font-style: normal;
+}
+
+.icono.bank::before {
+    font: var(--fa-font-solid);
+    content: "\f19c";
+}
+
+.icono.bill::before {
+    font: var(--fa-font-solid);
+    content: "\f02d";
+}
+
+.icono.cart::before {
+    font: var(--fa-font-solid);
+    content: "\f07a";
+}
+
+.icono.car::before {
+    font: var(--fa-font-solid);
+    content: "\f1b9";
+}
+
+.icono.education::before {
+    font: var(--fa-font-solid);
+    content: "\f19d";
+}
+
+.icono.game::before {
+    font: var(--fa-font-solid);
+    content: "\f11b";
+}
+
+.icono.healt::before {
+    font: var(--fa-font-solid);
+    content: "\f479";
+}
+
+.icono.gift::before {
+    font: var(--fa-font-solid);
+    content: "\f06b";
+}
+
+
 
